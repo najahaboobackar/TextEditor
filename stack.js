@@ -1,0 +1,35 @@
+class Stack{
+    constructor(){
+        this.size=0;
+        this.stack=[];
+        this.buffer=4;
+    }
+    clear(){
+        this.size()=0;
+        this.stack=[];
+    }
+    isEmpty(){
+        return (this.size==0);
+    }
+    top(){
+        return this.stack[this.size-1];
+    }
+    pop(){
+        if(!this.isEmpty()){
+            this.size--;
+            return this.stack.pop();
+        }else{
+            return [-1,''];
+        }
+    }
+    push(type,char){
+        if(this.isEmpty()){
+            let temp=this.stack.top();
+            if(temp[0]==type && temp[1].length<this.buffer){
+                let top=this.stack.pop();
+                top[1]=char+top[1];
+                this.stack.push(top);
+            }
+        }
+    }
+}
